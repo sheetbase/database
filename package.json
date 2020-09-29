@@ -1,7 +1,7 @@
 {
   "name": "@sheetbase/database",
   "version": "3.0.0-beta1",
-  "description": "Build server app on Google Apps Script.",
+  "description": "Using Google Sheets as a database.",
   "author": "Sheetbase",
   "homepage": "https://sheetbase.dev",
   "license": "MIT",
