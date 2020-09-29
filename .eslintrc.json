@@ -1,0 +1,4 @@
+{
+  "ignorePatterns": ["docs/", "**/*.js", "**/*.d.ts", "src/lodash/*.ts"],
+  "extends": "./node_modules/gts/"
+}

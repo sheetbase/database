@@ -1,0 +1,8 @@
+node_modules/
+# testing
+.nyc_output/
+# distribution
+src/**/*.js
+test/**/*.js
+*.map
+*.d.ts
