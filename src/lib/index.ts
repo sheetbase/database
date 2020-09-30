@@ -24,8 +24,8 @@ export class Lib {
       options
     );
     // routes
-    this.databaseRoute = new DatabaseRoute();
-    this.databaseContentRoute = new DatabaseContentRoute();
+    this.databaseRoute = new DatabaseRoute(this.databaseService);
+    this.databaseContentRoute = new DatabaseContentRoute(this.databaseService);
   }
 
   /**

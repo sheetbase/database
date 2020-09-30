@@ -62,6 +62,435 @@
 	<div class="row">
 		<div class="col-8 col-content">
 			<div class="tsd-panel tsd-typography">
+				<section id="head" data-note="AUTO-GENERATED CONTENT, DO NOT EDIT DIRECTLY!">
+					<a href="#sheetbasedatabase" id="sheetbasedatabase" style="color: inherit; text-decoration: none;">
+						<h1>@sheetbase/database</h1>
+					</a>
+					<p><strong>Using Google Sheets as a database.</strong></p>
+				</section>
+				<section id="tocx" data-note="AUTO-GENERATED CONTENT, DO NOT EDIT DIRECTLY!">
+					<ul>
+						<li><a href="#installation">Installation</a></li>
+						<li><a href="#options">Options</a></li>
+						<li><a href="#lib">Lib</a><ul>
+								<li><a href="#lib-properties">Lib properties</a></li>
+								<li><a href="#lib-methods">Lib methods</a><ul>
+										<li><a href="#lib-registerroutes-0"><code>registerRoutes(routeEnabling?)</code></a></li>
+									</ul>
+								</li>
+							</ul>
+						</li>
+						<li><a href="#routing">Routing</a><ul>
+								<li><a href="#routing-errors">Errors</a></li>
+								<li><a href="#routing-routes">Routes</a><ul>
+										<li><a href="#routing-routes-overview">Routes overview</a></li>
+										<li><a href="#routing-routes-detail">Routes detail</a><ul>
+												<li><a href="#GET__database_content"><code>GET</code> /database/content</a></li>
+												<li><a href="#DELETE__database"><code>DELETE</code> /database</a></li>
+												<li><a href="#GET__database"><code>GET</code> /database</a></li>
+												<li><a href="#PATCH__database"><code>PATCH</code> /database</a></li>
+												<li><a href="#POST__database"><code>POST</code> /database</a></li>
+												<li><a href="#PUT__database"><code>PUT</code> /database</a></li>
+											</ul>
+										</li>
+									</ul>
+								</li>
+							</ul>
+						</li>
+						<li><a href="https://sheetbase.github.io/database">Detail API reference</a></li>
+					</ul>
+				</section>
+				<section id="installation" data-note="AUTO-GENERATED CONTENT, DO NOT EDIT DIRECTLY!">
+					<h2><a name="installation"><p>Installation</p>
+					</a></h2>
+					<ul>
+						<li><p>Install: <code>npm install --save @sheetbase/database</code></p>
+						</li>
+						<li><p>Usage:</p>
+						</li>
+					</ul>
+					<pre><code class="language-ts"><span class="hljs-comment">// 1. import module</span>
+<span class="hljs-keyword">import</span> { DatabaseModule } <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;@sheetbase/database&quot;</span>;
+
+<span class="hljs-comment">// 2. create an instance</span>
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> App {
+  <span class="hljs-comment">// the object</span>
+  databaseModule: DatabaseModule;
+
+  <span class="hljs-comment">// initiate the instance</span>
+  <span class="hljs-keyword">constructor</span>(<span class="hljs-params"></span>) {
+    <span class="hljs-built_in">this</span>.databaseModule = <span class="hljs-keyword">new</span> DatabaseModule(<span class="hljs-comment">/* options */</span>);
+  }
+}</code></pre>
+				</section>
+				<section id="options" data-note="AUTO-GENERATED CONTENT, DO NOT EDIT DIRECTLY!">
+					<h2><a name="options"><p>Options</p>
+					</a></h2>
+					<table>
+						<thead>
+							<tr>
+								<th>Name</th>
+								<th>Type</th>
+								<th>Description</th>
+							</tr>
+						</thead>
+						<tbody><tr>
+								<td><a href="https://sheetbase.github.io/database/interfaces/options.html#authtoken">AuthToken?</a></td>
+								<td><code><a href="https://sheetbase.github.io/database/globals.html" target="_blank">AuthToken</a></code></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td><a href="https://sheetbase.github.io/database/interfaces/options.html#databaseid"><strong>databaseId</strong></a></td>
+								<td><code>string</code></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td><a href="https://sheetbase.github.io/database/interfaces/options.html#keyfields">keyFields?</a></td>
+								<td><code>undefined | object</code></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td><a href="https://sheetbase.github.io/database/interfaces/options.html#security">security?</a></td>
+								<td><code>boolean | object</code></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td><a href="https://sheetbase.github.io/database/interfaces/options.html#securityhelpers">securityHelpers?</a></td>
+								<td><code><a href="https://sheetbase.github.io/database/interfaces/securityhelpers.html" target="_blank">SecurityHelpers</a></code></td>
+								<td></td>
+							</tr>
+					</tbody></table>
+				</section>
+				<section id="lib" data-note="AUTO-GENERATED CONTENT, DO NOT EDIT DIRECTLY!">
+					<h2><a name="lib" href="https://sheetbase.github.io/database/classes/lib.html"><p>Lib</p>
+					</a></h2>
+					<p><strong>The <code>Lib</code> class.</strong></p>
+					<h3><a name="lib-properties"><p>Lib properties</p>
+					</a></h3>
+					<table>
+						<thead>
+							<tr>
+								<th>Name</th>
+								<th>Type</th>
+								<th>Description</th>
+							</tr>
+						</thead>
+						<tbody><tr>
+								<td><a href="https://sheetbase.github.io/database/classes/lib.html#databasecontentroute">databaseContentRoute</a></td>
+								<td><code><a href="https://sheetbase.github.io/database/classes/databasecontentroute.html" target="_blank">DatabaseContentRoute</a></code></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td><a href="https://sheetbase.github.io/database/classes/lib.html#databaseroute">databaseRoute</a></td>
+								<td><code><a href="https://sheetbase.github.io/database/classes/databaseroute.html" target="_blank">DatabaseRoute</a></code></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td><a href="https://sheetbase.github.io/database/classes/lib.html#databaseservice">databaseService</a></td>
+								<td><code><a href="https://sheetbase.github.io/database/classes/databaseservice.html" target="_blank">DatabaseService</a></code></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td><a href="https://sheetbase.github.io/database/classes/lib.html#filterservice">filterService</a></td>
+								<td><code><a href="https://sheetbase.github.io/database/classes/filterservice.html" target="_blank">FilterService</a></code></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td><a href="https://sheetbase.github.io/database/classes/lib.html#helperservice">helperService</a></td>
+								<td><code><a href="https://sheetbase.github.io/database/classes/helperservice.html" target="_blank">HelperService</a></code></td>
+								<td></td>
+							</tr>
+					</tbody></table>
+					<h3><a name="lib-methods"><p>Lib methods</p>
+					</a></h3>
+					<table>
+						<thead>
+							<tr>
+								<th>Function</th>
+								<th>Returns type</th>
+								<th>Description</th>
+							</tr>
+						</thead>
+						<tbody><tr>
+								<td><a href="#lib-registerroutes-0">registerRoutes(routeEnabling?)</a></td>
+								<td><code>RouterService<></code></td>
+								<td>Expose the module routes</td>
+							</tr>
+					</tbody></table>
+					<h4><a name="lib-registerroutes-0" href="https://sheetbase.github.io/database/classes/lib.html#registerroutes"><p><code>registerRoutes(routeEnabling?)</code></p>
+					</a></h4>
+					<p><strong>Expose the module routes</strong></p>
+					<p><strong>Parameters</strong></p>
+					<table>
+						<thead>
+							<tr>
+								<th>Param</th>
+								<th>Type</th>
+								<th>Description</th>
+							</tr>
+						</thead>
+						<tbody><tr>
+								<td>routeEnabling</td>
+								<td><code>true | DisabledRoutes</code></td>
+								<td></td>
+							</tr>
+					</tbody></table>
+					<p><strong>Returns</strong></p>
+					<p><code>RouterService<></code></p>
+					<hr>
+				</section>
+				<section id="routing" data-note="AUTO-GENERATED CONTENT, DO NOT EDIT DIRECTLY!">
+					<h2><a name="routing"><p>Routing</p>
+					</a></h2>
+					<p><strong>DatabaseModule</strong> provides REST API endpoints allowing clients to access server resources. Theses enpoints are not exposed by default, to expose the endpoints:</p>
+					<pre><code class="language-ts">DatabaseModule.registerRoutes(routeEnabling?);</code></pre>
+					<h3><a name="routing-errors"><p>Errors</p>
+					</a></h3>
+					<p><strong>DatabaseModule</strong> returns these routing errors, you may use the error code to customize the message:</p>
+					<ul>
+						<li><code>database/content-no-id</code>: No doc id.</li>
+						<li><code>database/no-input</code>: No path/table/sheet.</li>
+					</ul>
+					<h3><a name="routing-routes"><p>Routes</p>
+					</a></h3>
+					<h4><a name="routing-routes-overview"><p>Routes overview</p>
+					</a></h4>
+					<table>
+						<thead>
+							<tr>
+								<th>Route</th>
+								<th>Method</th>
+								<th>Disabled</th>
+								<th>Description</th>
+							</tr>
+						</thead>
+						<tbody><tr>
+								<td><a href="#GET__database_content">/database/content</a></td>
+								<td><code>GET</code></td>
+								<td></td>
+								<td>Get doc content</td>
+							</tr>
+							<tr>
+								<td><a href="#DELETE__database">/database</a></td>
+								<td><code>DELETE</code></td>
+								<td><code>true</code></td>
+								<td>Delete an item from the database (proxy to: post /database)</td>
+							</tr>
+							<tr>
+								<td><a href="#GET__database">/database</a></td>
+								<td><code>GET</code></td>
+								<td></td>
+								<td>Get data from the database</td>
+							</tr>
+							<tr>
+								<td><a href="#PATCH__database">/database</a></td>
+								<td><code>PATCH</code></td>
+								<td><code>true</code></td>
+								<td>Update an item from the database (proxy to: post /database)</td>
+							</tr>
+							<tr>
+								<td><a href="#POST__database">/database</a></td>
+								<td><code>POST</code></td>
+								<td><code>true</code></td>
+								<td>Add/update/delete data from database</td>
+							</tr>
+							<tr>
+								<td><a href="#PUT__database">/database</a></td>
+								<td><code>PUT</code></td>
+								<td><code>true</code></td>
+								<td>Add a new item do the database (proxy to: post /database)</td>
+							</tr>
+					</tbody></table>
+					<h4><a name="routing-routes-detail"><p>Routes detail</p>
+					</a></h4>
+					<h5><a name="GET__database_content"><p><code>GET</code> /database/content</p>
+					</a></h5>
+					<p>Get doc content</p>
+					<p><strong>Request query</strong></p>
+					<table>
+						<thead>
+							<tr>
+								<th>Name</th>
+								<th>Type</th>
+								<th>Description</th>
+							</tr>
+						</thead>
+						<tbody><tr>
+								<td><strong>docId</strong></td>
+								<td><a data-sref="string"><code>string</code></a></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td>style?</td>
+								<td><a data-sref="DocsContentStyles" href="https://sheetbase.github.io/database/globals.html#docscontentstyles"><code>DocsContentStyles</code></a></td>
+								<td></td>
+							</tr>
+					</tbody></table>
+					<p><strong>Response</strong></p>
+					<p><code>object</code></p>
+					<hr>
+					<h5><a name="DELETE__database"><p><code>DELETE</code> /database</p>
+					</a></h5>
+					<p><code>DISABLED</code> Delete an item from the database (proxy to: post /database)</p>
+					<p><strong>Response</strong></p>
+					<p><code>void</code></p>
+					<hr>
+					<h5><a name="GET__database"><p><code>GET</code> /database</p>
+					</a></h5>
+					<p>Get data from the database</p>
+					<p><strong>Request query</strong></p>
+					<table>
+						<thead>
+							<tr>
+								<th>Name</th>
+								<th>Type</th>
+								<th>Description</th>
+							</tr>
+						</thead>
+						<tbody><tr>
+								<td>path?</td>
+								<td><a data-sref="string"><code>string</code></a></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td>table?</td>
+								<td><a data-sref="string"><code>string</code></a></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td>sheet?</td>
+								<td><a data-sref="string"><code>string</code></a></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td>id?</td>
+								<td><a data-sref="string"><code>string</code></a></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td>key?</td>
+								<td><a data-sref="string"><code>string</code></a></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td>type?</td>
+								<td><a data-sref="'list' \"><p>&#39;object&#39;</p></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td></a></td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td>query?</td>
+								<td><a data-sref="string"><code>string</code></a></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td>segment?</td>
+								<td><a data-sref="string"><code>string</code></a></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td>order?</td>
+								<td><a data-sref="string"><code>string</code></a></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td>orderBy?</td>
+								<td><a data-sref="string"><code>string</code></a></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td>limit?</td>
+								<td><a data-sref="number"><code>number</code></a></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td>offset?</td>
+								<td><a data-sref="number"><code>number</code></a></td>
+								<td></td>
+							</tr>
+					</tbody></table>
+					<p><strong>Response</strong></p>
+					<p><code>Record&lt;string, unknown&gt; | unknown[]</code></p>
+					<hr>
+					<h5><a name="PATCH__database"><p><code>PATCH</code> /database</p>
+					</a></h5>
+					<p><code>DISABLED</code> Update an item from the database (proxy to: post /database)</p>
+					<p><strong>Response</strong></p>
+					<p><code>void</code></p>
+					<hr>
+					<h5><a name="POST__database"><p><code>POST</code> /database</p>
+					</a></h5>
+					<p><code>DISABLED</code> Add/update/delete data from database</p>
+					<p><strong>Request body</strong></p>
+					<table>
+						<thead>
+							<tr>
+								<th>Name</th>
+								<th>Type</th>
+								<th>Description</th>
+							</tr>
+						</thead>
+						<tbody><tr>
+								<td><strong>path</strong></td>
+								<td><a data-sref="string"><code>string</code></a></td>
+								<td>By path</td>
+							</tr>
+							<tr>
+								<td>table?</td>
+								<td><a data-sref="string"><code>string</code></a></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td>sheet?</td>
+								<td><a data-sref="string"><code>string</code></a></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td>id?</td>
+								<td><a data-sref="string"><code>string</code></a></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td>key?</td>
+								<td><a data-sref="string"><code>string</code></a></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td>data?</td>
+								<td><a data-sref="unknown"><code>unknown</code></a></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td>increasing?</td>
+								<td><a data-sref="Record<string, number>"><code>Record<string, number></code></a></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td>clean?</td>
+								<td><a data-sref="boolean"><code>boolean</code></a></td>
+								<td></td>
+							</tr>
+					</tbody></table>
+					<p><strong>Response</strong></p>
+					<p><code>TextOutput</code></p>
+					<hr>
+					<h5><a name="PUT__database"><p><code>PUT</code> /database</p>
+					</a></h5>
+					<p><code>DISABLED</code> Add a new item do the database (proxy to: post /database)</p>
+					<p><strong>Response</strong></p>
+					<p><code>void</code></p>
+					<hr>
+				</section>
+				<section id="license" data-note="AUTO-GENERATED CONTENT, DO NOT EDIT DIRECTLY!">
+					<a href="#license" id="license" style="color: inherit; text-decoration: none;">
+						<h2>License</h2>
+					</a>
+					<p><strong>@sheetbase/database</strong> is released under the <a href="https://github.com/sheetbase/database/blob/master/LICENSE">MIT</a> license.</p>
+				</section>
 			</div>
 		</div>
 		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">

@@ -15,6 +15,7 @@
   - [Lib methods](#lib-methods)
     - [`registerRoutes(routeEnabling?)`](#lib-registerroutes-0)
 - [Routing](#routing)
+  - [Errors](#routing-errors)
   - [Routes](#routing-routes)
     - [Routes overview](#routing-routes-overview)
     - [Routes detail](#routing-routes-detail)
@@ -126,20 +127,28 @@ export class App {
 DatabaseModule.registerRoutes(routeEnabling?);
 ```
 
+<h3><a name="routing-errors"><p>Errors</p>
+</a></h3>
+
+**DatabaseModule** returns these routing errors, you may use the error code to customize the message:
+
+- `database/content-no-id`: No doc id.
+- `database/no-input`: No path/table/sheet.
+
 <h3><a name="routing-routes"><p>Routes</p>
 </a></h3>
 
 <h4><a name="routing-routes-overview"><p>Routes overview</p>
 </a></h4>
 
-| Route                                       | Method   | Disabled | Description |
-| ------------------------------------------- | -------- | -------- | ----------- |
-| [/database/content](#GET__database_content) | `GET`    |          |             |
-| [/database](#DELETE__database)              | `DELETE` | `true`   |             |
-| [/database](#GET__database)                 | `GET`    |          |             |
-| [/database](#PATCH__database)               | `PATCH`  | `true`   |             |
-| [/database](#POST__database)                | `POST`   | `true`   |             |
-| [/database](#PUT__database)                 | `PUT`    | `true`   |             |
+| Route                                       | Method   | Disabled | Description                                                 |
+| ------------------------------------------- | -------- | -------- | ----------------------------------------------------------- |
+| [/database/content](#GET__database_content) | `GET`    |          | Get doc content                                             |
+| [/database](#DELETE__database)              | `DELETE` | `true`   | Delete an item from the database (proxy to: post /database) |
+| [/database](#GET__database)                 | `GET`    |          | Get data from the database                                  |
+| [/database](#PATCH__database)               | `PATCH`  | `true`   | Update an item from the database (proxy to: post /database) |
+| [/database](#POST__database)                | `POST`   | `true`   | Add/update/delete data from database                        |
+| [/database](#PUT__database)                 | `PUT`    | `true`   | Add a new item do the database (proxy to: post /database)   |
 
 <h4><a name="routing-routes-detail"><p>Routes detail</p>
 </a></h4>
@@ -147,16 +156,25 @@ DatabaseModule.registerRoutes(routeEnabling?);
 <h5><a name="GET__database_content"><p><code>GET</code> /database/content</p>
 </a></h5>
 
+Get doc content
+
+**Request query**
+
+| Name      | Type                  | Description |
+| --------- | --------------------- | ----------- |
+| **docId** | <a data-sref="string"><code>string</code></a>            |             |
+| style?    | <a data-sref="DocsContentStyles" href="https://sheetbase.github.io/database/globals.html#docscontentstyles"><code>DocsContentStyles</code></a> |             |
+
 **Response**
 
-`string`
+`object`
 
 ---
 
 <h5><a name="DELETE__database"><p><code>DELETE</code> /database</p>
 </a></h5>
 
-`DISABLED`
+`DISABLED` Delete an item from the database (proxy to: post /database)
 
 **Response**
 
@@ -167,16 +185,36 @@ DatabaseModule.registerRoutes(routeEnabling?);
 <h5><a name="GET__database"><p><code>GET</code> /database</p>
 </a></h5>
 
+Get data from the database
+
+**Request query**
+
+| Name     | Type                   | Description |
+| -------- | ---------------------- | ----------- |
+| path?    | <a data-sref="string"><code>string</code></a>             |             |
+| table?   | <a data-sref="string"><code>string</code></a>             |             |
+| sheet?   | <a data-sref="string"><code>string</code></a>             |             |
+| id?      | <a data-sref="string"><code>string</code></a>             |             |
+| key?     | <a data-sref="string"><code>string</code></a>             |             |
+| type?    | <a data-sref="'list' \"><p>'object'</p>
+</a> |             |
+| query?   | <a data-sref="string"><code>string</code></a>             |             |
+| segment? | <a data-sref="string"><code>string</code></a>             |             |
+| order?   | <a data-sref="string"><code>string</code></a>             |             |
+| orderBy? | <a data-sref="string"><code>string</code></a>             |             |
+| limit?   | <a data-sref="number"><code>number</code></a>             |             |
+| offset?  | <a data-sref="number"><code>number</code></a>             |             |
+
 **Response**
 
-`string`
+`Record<string, unknown> | unknown[]`
 
 ---
 
 <h5><a name="PATCH__database"><p><code>PATCH</code> /database</p>
 </a></h5>
 
-`DISABLED`
+`DISABLED` Update an item from the database (proxy to: post /database)
 
 **Response**
 
@@ -187,18 +225,31 @@ DatabaseModule.registerRoutes(routeEnabling?);
 <h5><a name="POST__database"><p><code>POST</code> /database</p>
 </a></h5>
 
-`DISABLED`
+`DISABLED` Add/update/delete data from database
+
+**Request body**
+
+| Name        | Type                       | Description |
+| ----------- | -------------------------- | ----------- |
+| **path**    | <a data-sref="string"><code>string</code></a>                 |             |
+| table?      | <a data-sref="string"><code>string</code></a>                 |             |
+| sheet?      | <a data-sref="string"><code>string</code></a>                 |             |
+| id?         | <a data-sref="string"><code>string</code></a>                 |             |
+| key?        | <a data-sref="string"><code>string</code></a>                 |             |
+| data?       | <a data-sref="unknown"><code>unknown</code></a>                |             |
+| increasing? | <a data-sref="Record<string, number>"><code>Record<string, number></code></a> |             |
+| clean?      | <a data-sref="boolean"><code>boolean</code></a>                |             |
 
 **Response**
 
-`void`
+`TextOutput`
 
 ---
 
 <h5><a name="PUT__database"><p><code>PUT</code> /database</p>
 </a></h5>
 
-`DISABLED`
+`DISABLED` Add a new item do the database (proxy to: post /database)
 
 **Response**
 
