@@ -11,5 +11,7 @@ export * from './lib/services/database.service';
 export * from './lib/objects/ref.object';
 export * from './lib/objects/snapshot.object';
 
+export * from './lib/middlewares/database.middleware';
+
 export * from './lib/routes/database.route';
 export * from './lib/routes/database-content.route';

@@ -135,11 +135,6 @@
 							</tr>
 						</thead>
 						<tbody><tr>
-								<td><a href="https://sheetbase.github.io/database/interfaces/options.html#authtoken">AuthToken?</a></td>
-								<td><code><a href="https://sheetbase.github.io/database/globals.html" target="_blank">AuthToken</a></code></td>
-								<td></td>
-							</tr>
-							<tr>
 								<td><a href="https://sheetbase.github.io/database/interfaces/options.html#databaseid"><strong>databaseId</strong></a></td>
 								<td><code>string</code></td>
 								<td></td>
@@ -181,6 +176,11 @@
 								<td></td>
 							</tr>
 							<tr>
+								<td><a href="https://sheetbase.github.io/database/classes/lib.html#databasemiddleware">databaseMiddleware</a></td>
+								<td><code><a href="https://sheetbase.github.io/database/classes/databasemiddleware.html" target="_blank">DatabaseMiddleware</a></code></td>
+								<td></td>
+							</tr>
+							<tr>
 								<td><a href="https://sheetbase.github.io/database/classes/lib.html#databaseroute">databaseRoute</a></td>
 								<td><code><a href="https://sheetbase.github.io/database/classes/databaseroute.html" target="_blank">DatabaseRoute</a></code></td>
 								<td></td>
@@ -198,6 +198,16 @@
 							<tr>
 								<td><a href="https://sheetbase.github.io/database/classes/lib.html#helperservice">helperService</a></td>
 								<td><code><a href="https://sheetbase.github.io/database/classes/helperservice.html" target="_blank">HelperService</a></code></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td><a href="https://sheetbase.github.io/database/classes/lib.html#optionservice">optionService</a></td>
+								<td><code><a href="https://sheetbase.github.io/database/classes/optionservice.html" target="_blank">OptionService</a></code></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td><a href="https://sheetbase.github.io/database/classes/lib.html#securityservice">securityService</a></td>
+								<td><code><a href="https://sheetbase.github.io/database/classes/securityservice.html" target="_blank">SecurityService</a></code></td>
 								<td></td>
 							</tr>
 					</tbody></table>
@@ -332,6 +342,41 @@
 					<h5><a name="DELETE__database"><p><code>DELETE</code> /database</p>
 					</a></h5>
 					<p><code>DISABLED</code> Delete an item from the database (proxy to: post /database)</p>
+					<p><strong>Request body</strong></p>
+					<table>
+						<thead>
+							<tr>
+								<th>Name</th>
+								<th>Type</th>
+								<th>Description</th>
+							</tr>
+						</thead>
+						<tbody><tr>
+								<td><strong>path</strong></td>
+								<td><a data-sref="string"><code>string</code></a></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td>table?</td>
+								<td><a data-sref="string"><code>string</code></a></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td>sheet?</td>
+								<td><a data-sref="string"><code>string</code></a></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td>id?</td>
+								<td><a data-sref="string"><code>string</code></a></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td>key?</td>
+								<td><a data-sref="string"><code>string</code></a></td>
+								<td></td>
+							</tr>
+					</tbody></table>
 					<p><strong>Response</strong></p>
 					<p><code>void</code></p>
 					<hr>
@@ -419,6 +464,46 @@
 					<h5><a name="PATCH__database"><p><code>PATCH</code> /database</p>
 					</a></h5>
 					<p><code>DISABLED</code> Update an item from the database (proxy to: post /database)</p>
+					<p><strong>Request body</strong></p>
+					<table>
+						<thead>
+							<tr>
+								<th>Name</th>
+								<th>Type</th>
+								<th>Description</th>
+							</tr>
+						</thead>
+						<tbody><tr>
+								<td><strong>path</strong></td>
+								<td><a data-sref="string"><code>string</code></a></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td>table?</td>
+								<td><a data-sref="string"><code>string</code></a></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td>sheet?</td>
+								<td><a data-sref="string"><code>string</code></a></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td>id?</td>
+								<td><a data-sref="string"><code>string</code></a></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td>key?</td>
+								<td><a data-sref="string"><code>string</code></a></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td>data?</td>
+								<td><a data-sref="unknown"><code>unknown</code></a></td>
+								<td></td>
+							</tr>
+					</tbody></table>
 					<p><strong>Response</strong></p>
 					<p><code>void</code></p>
 					<hr>
@@ -476,11 +561,51 @@
 							</tr>
 					</tbody></table>
 					<p><strong>Response</strong></p>
-					<p><code>TextOutput</code></p>
+					<p><code>void</code></p>
 					<hr>
 					<h5><a name="PUT__database"><p><code>PUT</code> /database</p>
 					</a></h5>
 					<p><code>DISABLED</code> Add a new item do the database (proxy to: post /database)</p>
+					<p><strong>Request body</strong></p>
+					<table>
+						<thead>
+							<tr>
+								<th>Name</th>
+								<th>Type</th>
+								<th>Description</th>
+							</tr>
+						</thead>
+						<tbody><tr>
+								<td><strong>path</strong></td>
+								<td><a data-sref="string"><code>string</code></a></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td>table?</td>
+								<td><a data-sref="string"><code>string</code></a></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td>sheet?</td>
+								<td><a data-sref="string"><code>string</code></a></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td>id?</td>
+								<td><a data-sref="string"><code>string</code></a></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td>key?</td>
+								<td><a data-sref="string"><code>string</code></a></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td>data?</td>
+								<td><a data-sref="unknown"><code>unknown</code></a></td>
+								<td></td>
+							</tr>
+					</tbody></table>
 					<p><strong>Response</strong></p>
 					<p><code>void</code></p>
 					<hr>
