@@ -64,7 +64,6 @@ export class App {
 
 | Name                                                                                             | Type                                                                                                                            | Description |
 | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------- | ----------- |
-| [AuthToken?](https://sheetbase.github.io/database/interfaces/options.html#authtoken)             | <code><a href="https://sheetbase.github.io/database/globals.html" target="_blank">AuthToken</a></code>                          |             |
 | [**databaseId**](https://sheetbase.github.io/database/interfaces/options.html#databaseid)        | <code>string</code>                                                                                                             |             |
 | [keyFields?](https://sheetbase.github.io/database/interfaces/options.html#keyfields)             | <code>undefined \| object</code>                                                                                                |             |
 | [security?](https://sheetbase.github.io/database/interfaces/options.html#security)               | <code>boolean \| object</code>                                                                                                  |             |
@@ -85,10 +84,13 @@ export class App {
 | Name                                                                                               | Type                                                                                                                                   | Description |
 | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
 | [databaseContentRoute](https://sheetbase.github.io/database/classes/lib.html#databasecontentroute) | <code><a href="https://sheetbase.github.io/database/classes/databasecontentroute.html" target="_blank">DatabaseContentRoute</a></code> |             |
+| [databaseMiddleware](https://sheetbase.github.io/database/classes/lib.html#databasemiddleware)     | <code><a href="https://sheetbase.github.io/database/classes/databasemiddleware.html" target="_blank">DatabaseMiddleware</a></code>     |             |
 | [databaseRoute](https://sheetbase.github.io/database/classes/lib.html#databaseroute)               | <code><a href="https://sheetbase.github.io/database/classes/databaseroute.html" target="_blank">DatabaseRoute</a></code>               |             |
 | [databaseService](https://sheetbase.github.io/database/classes/lib.html#databaseservice)           | <code><a href="https://sheetbase.github.io/database/classes/databaseservice.html" target="_blank">DatabaseService</a></code>           |             |
 | [filterService](https://sheetbase.github.io/database/classes/lib.html#filterservice)               | <code><a href="https://sheetbase.github.io/database/classes/filterservice.html" target="_blank">FilterService</a></code>               |             |
 | [helperService](https://sheetbase.github.io/database/classes/lib.html#helperservice)               | <code><a href="https://sheetbase.github.io/database/classes/helperservice.html" target="_blank">HelperService</a></code>               |             |
+| [optionService](https://sheetbase.github.io/database/classes/lib.html#optionservice)               | <code><a href="https://sheetbase.github.io/database/classes/optionservice.html" target="_blank">OptionService</a></code>               |             |
+| [securityService](https://sheetbase.github.io/database/classes/lib.html#securityservice)           | <code><a href="https://sheetbase.github.io/database/classes/securityservice.html" target="_blank">SecurityService</a></code>           |             |
 
 <h3><a name="lib-methods"><p>Lib methods</p>
 </a></h3>
@@ -176,6 +178,16 @@ Get doc content
 
 `DISABLED` Delete an item from the database (proxy to: post /database)
 
+**Request body**
+
+| Name     | Type       | Description |
+| -------- | ---------- | ----------- |
+| **path** | <a data-sref="string"><code>string</code></a> |             |
+| table?   | <a data-sref="string"><code>string</code></a> |             |
+| sheet?   | <a data-sref="string"><code>string</code></a> |             |
+| id?      | <a data-sref="string"><code>string</code></a> |             |
+| key?     | <a data-sref="string"><code>string</code></a> |             |
+
 **Response**
 
 `void`
@@ -216,6 +228,17 @@ Get data from the database
 
 `DISABLED` Update an item from the database (proxy to: post /database)
 
+**Request body**
+
+| Name     | Type        | Description |
+| -------- | ----------- | ----------- |
+| **path** | <a data-sref="string"><code>string</code></a>  |             |
+| table?   | <a data-sref="string"><code>string</code></a>  |             |
+| sheet?   | <a data-sref="string"><code>string</code></a>  |             |
+| id?      | <a data-sref="string"><code>string</code></a>  |             |
+| key?     | <a data-sref="string"><code>string</code></a>  |             |
+| data?    | <a data-sref="unknown"><code>unknown</code></a> |             |
+
 **Response**
 
 `void`
@@ -242,7 +265,7 @@ Get data from the database
 
 **Response**
 
-`TextOutput`
+`void`
 
 ---
 
@@ -250,6 +273,17 @@ Get data from the database
 </a></h5>
 
 `DISABLED` Add a new item do the database (proxy to: post /database)
+
+**Request body**
+
+| Name     | Type        | Description |
+| -------- | ----------- | ----------- |
+| **path** | <a data-sref="string"><code>string</code></a>  |             |
+| table?   | <a data-sref="string"><code>string</code></a>  |             |
+| sheet?   | <a data-sref="string"><code>string</code></a>  |             |
+| id?      | <a data-sref="string"><code>string</code></a>  |             |
+| key?     | <a data-sref="string"><code>string</code></a>  |             |
+| data?    | <a data-sref="unknown"><code>unknown</code></a> |             |
 
 **Response**
 

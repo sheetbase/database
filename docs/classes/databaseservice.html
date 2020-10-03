@@ -91,8 +91,6 @@
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="databaseservice.html#docscontent" class="tsd-kind-icon">docs<wbr>Content</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="databaseservice.html#extend" class="tsd-kind-icon">extend</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="databaseservice.html#getlocaldatabase" class="tsd-kind-icon">get<wbr>Local<wbr>Database</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="databaseservice.html#getoptions" class="tsd-kind-icon">get<wbr>Options</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="databaseservice.html#getsecurity" class="tsd-kind-icon">get<wbr>Security</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="databaseservice.html#getspreadsheet" class="tsd-kind-icon">get<wbr>Spreadsheet</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="databaseservice.html#increase" class="tsd-kind-icon">increase</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter"><a href="databaseservice.html#item" class="tsd-kind-icon">item</a></li>
@@ -102,7 +100,6 @@
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="databaseservice.html#ref" class="tsd-kind-icon">ref</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="databaseservice.html#remove" class="tsd-kind-icon">remove</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter"><a href="databaseservice.html#set" class="tsd-kind-icon">set</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter"><a href="databaseservice.html#setintegration" class="tsd-kind-icon">set<wbr>Integration</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="databaseservice.html#setlocaldatabase" class="tsd-kind-icon">set<wbr>Local<wbr>Database</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="databaseservice.html#toadmin" class="tsd-kind-icon">to<wbr>Admin</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter"><a href="databaseservice.html#update" class="tsd-kind-icon">update</a></li>
@@ -117,17 +114,20 @@
 					<a name="constructor" class="tsd-anchor"></a>
 					<h3>constructor</h3>
 					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">new <wbr>Database<wbr>Service<span class="tsd-signature-symbol">(</span>helperService<span class="tsd-signature-symbol">: </span><a href="helperservice.html" class="tsd-signature-type">HelperService</a>, filterService<span class="tsd-signature-symbol">: </span><a href="filterservice.html" class="tsd-signature-type">FilterService</a>, options<span class="tsd-signature-symbol">: </span><a href="../interfaces/options.html" class="tsd-signature-type">Options</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="databaseservice.html" class="tsd-signature-type">DatabaseService</a></li>
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Database<wbr>Service<span class="tsd-signature-symbol">(</span>optionService<span class="tsd-signature-symbol">: </span><a href="optionservice.html" class="tsd-signature-type">OptionService</a>, helperService<span class="tsd-signature-symbol">: </span><a href="helperservice.html" class="tsd-signature-type">HelperService</a>, filterService<span class="tsd-signature-symbol">: </span><a href="filterservice.html" class="tsd-signature-type">FilterService</a>, sercurityService<span class="tsd-signature-symbol">: </span><a href="securityservice.html" class="tsd-signature-type">SecurityService</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="databaseservice.html" class="tsd-signature-type">DatabaseService</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/sheetbase/database/blob/e088411/src/lib/services/database.service.ts#L22">lib/services/database.service.ts:22</a></li>
+									<li>Defined in <a href="https://github.com/sheetbase/database/blob/54226f9/src/lib/services/database.service.ts#L17">lib/services/database.service.ts:17</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
+								<li>
+									<h5>optionService: <a href="optionservice.html" class="tsd-signature-type">OptionService</a></h5>
+								</li>
 								<li>
 									<h5>helperService: <a href="helperservice.html" class="tsd-signature-type">HelperService</a></h5>
 								</li>
@@ -135,7 +135,7 @@
 									<h5>filterService: <a href="filterservice.html" class="tsd-signature-type">FilterService</a></h5>
 								</li>
 								<li>
-									<h5>options: <a href="../interfaces/options.html" class="tsd-signature-type">Options</a></h5>
+									<h5>sercurityService: <a href="securityservice.html" class="tsd-signature-type">SecurityService</a></h5>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="databaseservice.html" class="tsd-signature-type">DatabaseService</a></h4>
@@ -155,7 +155,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/sheetbase/database/blob/e088411/src/lib/services/database.service.ts#L155">lib/services/database.service.ts:155</a></li>
+									<li>Defined in <a href="https://github.com/sheetbase/database/blob/54226f9/src/lib/services/database.service.ts#L135">lib/services/database.service.ts:135</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-type-parameters-title">Type parameters</h4>
@@ -190,7 +190,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/sheetbase/database/blob/e088411/src/lib/services/database.service.ts#L96">lib/services/database.service.ts:96</a></li>
+									<li>Defined in <a href="https://github.com/sheetbase/database/blob/54226f9/src/lib/services/database.service.ts#L76">lib/services/database.service.ts:76</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-type-parameters-title">Type parameters</h4>
@@ -219,7 +219,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/sheetbase/database/blob/e088411/src/lib/services/database.service.ts#L92">lib/services/database.service.ts:92</a></li>
+									<li>Defined in <a href="https://github.com/sheetbase/database/blob/54226f9/src/lib/services/database.service.ts#L72">lib/services/database.service.ts:72</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-type-parameters-title">Type parameters</h4>
@@ -253,7 +253,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/sheetbase/database/blob/e088411/src/lib/services/database.service.ts#L173">lib/services/database.service.ts:173</a></li>
+									<li>Defined in <a href="https://github.com/sheetbase/database/blob/54226f9/src/lib/services/database.service.ts#L153">lib/services/database.service.ts:153</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -273,22 +273,24 @@
 					<a name="extend" class="tsd-anchor"></a>
 					<h3>extend</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">extend<span class="tsd-signature-symbol">(</span>options<span class="tsd-signature-symbol">: </span><a href="../interfaces/extendable.html" class="tsd-signature-type">Extendable</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="databaseservice.html" class="tsd-signature-type">DatabaseService</a></li>
+						<li class="tsd-signature tsd-kind-icon">extend<span class="tsd-signature-symbol">(</span>extendableOptions<span class="tsd-signature-symbol">: </span><a href="../interfaces/extendable.html" class="tsd-signature-type">Extendable</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">{}</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/sheetbase/database/blob/e088411/src/lib/services/database.service.ts#L68">lib/services/database.service.ts:68</a></li>
+									<li>Defined in <a href="https://github.com/sheetbase/database/blob/54226f9/src/lib/services/database.service.ts#L32">lib/services/database.service.ts:32</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>options: <a href="../interfaces/extendable.html" class="tsd-signature-type">Extendable</a></h5>
+									<h5>extendableOptions: <a href="../interfaces/extendable.html" class="tsd-signature-type">Extendable</a></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="databaseservice.html" class="tsd-signature-type">DatabaseService</a></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-symbol">{}</span></h4>
+							<ul class="tsd-parameters">
+							</ul>
 						</li>
 					</ul>
 				</section>
@@ -302,7 +304,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/sheetbase/database/blob/e088411/src/lib/services/database.service.ts#L44">lib/services/database.service.ts:44</a></li>
+									<li>Defined in <a href="https://github.com/sheetbase/database/blob/54226f9/src/lib/services/database.service.ts#L41">lib/services/database.service.ts:41</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -316,40 +318,6 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="getoptions" class="tsd-anchor"></a>
-					<h3>get<wbr>Options</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">get<wbr>Options<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/options.html" class="tsd-signature-type">Options</a></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/sheetbase/database/blob/e088411/src/lib/services/database.service.ts#L40">lib/services/database.service.ts:40</a></li>
-								</ul>
-							</aside>
-							<h4 class="tsd-returns-title">Returns <a href="../interfaces/options.html" class="tsd-signature-type">Options</a></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="getsecurity" class="tsd-anchor"></a>
-					<h3>get<wbr>Security</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">get<wbr>Security<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="security.html" class="tsd-signature-type">Security</a></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/sheetbase/database/blob/e088411/src/lib/services/database.service.ts#L56">lib/services/database.service.ts:56</a></li>
-								</ul>
-							</aside>
-							<h4 class="tsd-returns-title">Returns <a href="security.html" class="tsd-signature-type">Security</a></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="getspreadsheet" class="tsd-anchor"></a>
 					<h3>get<wbr>Spreadsheet</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
@@ -359,7 +327,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/sheetbase/database/blob/e088411/src/lib/services/database.service.ts#L52">lib/services/database.service.ts:52</a></li>
+									<li>Defined in <a href="https://github.com/sheetbase/database/blob/54226f9/src/lib/services/database.service.ts#L49">lib/services/database.service.ts:49</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Spreadsheet</span></h4>
@@ -376,7 +344,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/sheetbase/database/blob/e088411/src/lib/services/database.service.ts#L163">lib/services/database.service.ts:163</a></li>
+									<li>Defined in <a href="https://github.com/sheetbase/database/blob/54226f9/src/lib/services/database.service.ts#L143">lib/services/database.service.ts:143</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -405,7 +373,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/sheetbase/database/blob/e088411/src/lib/services/database.service.ts#L126">lib/services/database.service.ts:126</a></li>
+									<li>Defined in <a href="https://github.com/sheetbase/database/blob/54226f9/src/lib/services/database.service.ts#L106">lib/services/database.service.ts:106</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-type-parameters-title">Type parameters</h4>
@@ -440,7 +408,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/sheetbase/database/blob/e088411/src/lib/services/database.service.ts#L113">lib/services/database.service.ts:113</a></li>
+									<li>Defined in <a href="https://github.com/sheetbase/database/blob/54226f9/src/lib/services/database.service.ts#L93">lib/services/database.service.ts:93</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-type-parameters-title">Type parameters</h4>
@@ -478,7 +446,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/sheetbase/database/blob/e088411/src/lib/services/database.service.ts#L88">lib/services/database.service.ts:88</a></li>
+									<li>Defined in <a href="https://github.com/sheetbase/database/blob/54226f9/src/lib/services/database.service.ts#L68">lib/services/database.service.ts:68</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -504,7 +472,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/sheetbase/database/blob/e088411/src/lib/services/database.service.ts#L100">lib/services/database.service.ts:100</a></li>
+									<li>Defined in <a href="https://github.com/sheetbase/database/blob/54226f9/src/lib/services/database.service.ts#L80">lib/services/database.service.ts:80</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-type-parameters-title">Type parameters</h4>
@@ -536,13 +504,13 @@
 					<a name="ref" class="tsd-anchor"></a>
 					<h3>ref</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">ref<span class="tsd-signature-symbol">(</span>path<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="ref.html" class="tsd-signature-type">Ref</a></li>
+						<li class="tsd-signature tsd-kind-icon">ref<span class="tsd-signature-symbol">(</span>path<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="refobject.html" class="tsd-signature-type">RefObject</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/sheetbase/database/blob/e088411/src/lib/services/database.service.ts#L79">lib/services/database.service.ts:79</a></li>
+									<li>Defined in <a href="https://github.com/sheetbase/database/blob/54226f9/src/lib/services/database.service.ts#L57">lib/services/database.service.ts:57</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -551,7 +519,7 @@
 									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> path: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> = &quot;/&quot;</span></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="ref.html" class="tsd-signature-type">Ref</a></h4>
+							<h4 class="tsd-returns-title">Returns <a href="refobject.html" class="tsd-signature-type">RefObject</a></h4>
 						</li>
 					</ul>
 				</section>
@@ -565,7 +533,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/sheetbase/database/blob/e088411/src/lib/services/database.service.ts#L159">lib/services/database.service.ts:159</a></li>
+									<li>Defined in <a href="https://github.com/sheetbase/database/blob/54226f9/src/lib/services/database.service.ts#L139">lib/services/database.service.ts:139</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -591,7 +559,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/sheetbase/database/blob/e088411/src/lib/services/database.service.ts#L147">lib/services/database.service.ts:147</a></li>
+									<li>Defined in <a href="https://github.com/sheetbase/database/blob/54226f9/src/lib/services/database.service.ts#L127">lib/services/database.service.ts:127</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-type-parameters-title">Type parameters</h4>
@@ -616,38 +584,6 @@
 						</li>
 					</ul>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter">
-					<a name="setintegration" class="tsd-anchor"></a>
-					<h3>set<wbr>Integration</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter">
-						<li class="tsd-signature tsd-kind-icon">set<wbr>Integration&lt;K&gt;<span class="tsd-signature-symbol">(</span>key<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">K</span>, value<span class="tsd-signature-symbol">: </span><a href="../interfaces/authtoken.html" class="tsd-signature-type">AuthToken</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="databaseservice.html" class="tsd-signature-type">DatabaseService</a></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/sheetbase/database/blob/e088411/src/lib/services/database.service.ts#L60">lib/services/database.service.ts:60</a></li>
-								</ul>
-							</aside>
-							<h4 class="tsd-type-parameters-title">Type parameters</h4>
-							<ul class="tsd-type-parameters">
-								<li>
-									<h4>K<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">keyof </span><a href="../interfaces/intergration.html" class="tsd-signature-type">Intergration</a></h4>
-								</li>
-							</ul>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>key: <span class="tsd-signature-type">K</span></h5>
-								</li>
-								<li>
-									<h5>value: <a href="../interfaces/authtoken.html" class="tsd-signature-type">AuthToken</a></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="databaseservice.html" class="tsd-signature-type">DatabaseService</a></h4>
-						</li>
-					</ul>
-				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="setlocaldatabase" class="tsd-anchor"></a>
 					<h3>set<wbr>Local<wbr>Database</h3>
@@ -658,7 +594,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/sheetbase/database/blob/e088411/src/lib/services/database.service.ts#L48">lib/services/database.service.ts:48</a></li>
+									<li>Defined in <a href="https://github.com/sheetbase/database/blob/54226f9/src/lib/services/database.service.ts#L45">lib/services/database.service.ts:45</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -678,16 +614,18 @@
 					<a name="toadmin" class="tsd-anchor"></a>
 					<h3>to<wbr>Admin</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">to<wbr>Admin<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="databaseservice.html" class="tsd-signature-type">DatabaseService</a></li>
+						<li class="tsd-signature tsd-kind-icon">to<wbr>Admin<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">{}</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/sheetbase/database/blob/e088411/src/lib/services/database.service.ts#L75">lib/services/database.service.ts:75</a></li>
+									<li>Defined in <a href="https://github.com/sheetbase/database/blob/54226f9/src/lib/services/database.service.ts#L53">lib/services/database.service.ts:53</a></li>
 								</ul>
 							</aside>
-							<h4 class="tsd-returns-title">Returns <a href="databaseservice.html" class="tsd-signature-type">DatabaseService</a></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-symbol">{}</span></h4>
+							<ul class="tsd-parameters">
+							</ul>
 						</li>
 					</ul>
 				</section>
@@ -701,7 +639,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/sheetbase/database/blob/e088411/src/lib/services/database.service.ts#L151">lib/services/database.service.ts:151</a></li>
+									<li>Defined in <a href="https://github.com/sheetbase/database/blob/54226f9/src/lib/services/database.service.ts#L131">lib/services/database.service.ts:131</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-type-parameters-title">Type parameters</h4>
@@ -742,6 +680,9 @@
 						<a href="databasecontentroute.html" class="tsd-kind-icon">Database<wbr>Content<wbr>Route</a>
 					</li>
 					<li class=" tsd-kind-class">
+						<a href="databasemiddleware.html" class="tsd-kind-icon">Database<wbr>Middleware</a>
+					</li>
+					<li class=" tsd-kind-class">
 						<a href="databaseroute.html" class="tsd-kind-icon">Database<wbr>Route</a>
 					</li>
 				</ul>
@@ -771,12 +712,6 @@
 								<a href="databaseservice.html#getlocaldatabase" class="tsd-kind-icon">get<wbr>Local<wbr>Database</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="databaseservice.html#getoptions" class="tsd-kind-icon">get<wbr>Options</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="databaseservice.html#getsecurity" class="tsd-kind-icon">get<wbr>Security</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="databaseservice.html#getspreadsheet" class="tsd-kind-icon">get<wbr>Spreadsheet</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
@@ -803,9 +738,6 @@
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter">
 								<a href="databaseservice.html#set" class="tsd-kind-icon">set</a>
 							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter">
-								<a href="databaseservice.html#setintegration" class="tsd-kind-icon">set<wbr>Integration</a>
-							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="databaseservice.html#setlocaldatabase" class="tsd-kind-icon">set<wbr>Local<wbr>Database</a>
 							</li>
@@ -829,25 +761,22 @@
 						<a href="lib.html" class="tsd-kind-icon">Lib</a>
 					</li>
 					<li class=" tsd-kind-class">
-						<a href="ref.html" class="tsd-kind-icon">Ref</a>
+						<a href="optionservice.html" class="tsd-kind-icon">Option<wbr>Service</a>
 					</li>
 					<li class=" tsd-kind-class">
-						<a href="security.html" class="tsd-kind-icon">Security</a>
+						<a href="refobject.html" class="tsd-kind-icon">Ref<wbr>Object</a>
 					</li>
 					<li class=" tsd-kind-class">
-						<a href="snapshot.html" class="tsd-kind-icon">Snapshot</a>
+						<a href="securityservice.html" class="tsd-kind-icon">Security<wbr>Service</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="snapshotobject.html" class="tsd-kind-icon">Snapshot<wbr>Object</a>
 					</li>
 					<li class=" tsd-kind-interface">
 						<a href="../interfaces/authdata.html" class="tsd-kind-icon">Auth<wbr>Data</a>
 					</li>
 					<li class=" tsd-kind-interface">
-						<a href="../interfaces/authtoken.html" class="tsd-kind-icon">Auth<wbr>Token</a>
-					</li>
-					<li class=" tsd-kind-interface">
 						<a href="../interfaces/extendable.html" class="tsd-kind-icon">Extendable</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="../interfaces/intergration.html" class="tsd-kind-icon">Intergration</a>
 					</li>
 					<li class=" tsd-kind-interface">
 						<a href="../interfaces/listingfilter.html" class="tsd-kind-icon">Listing<wbr>Filter</a>
