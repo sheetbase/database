@@ -1,44 +1,41 @@
-/* eslint-disable no-undef */
 import {
-  Options,
   Extendable,
-  Intergration,
   Filter,
   ListingFilter,
   LocalDatabase,
   DocsContentStyles,
   DataSegment,
-  AuthToken,
-} from '../types';
-import {Ref} from '../ref';
+} from '../types/database.type';
+import {OptionService} from './option.service';
 import {HelperService} from './helper.service';
 import {FilterService} from './filter.service';
-import {Security} from '../security';
+import {SecurityService} from '../services/security.service';
+import {RefObject} from '../objects/ref.object';
 
 export class DatabaseService {
-  private options: Options;
   private localDatabase: LocalDatabase;
   private spreadsheet: GoogleAppsScript.Spreadsheet.Spreadsheet;
-  private security: Security;
 
   constructor(
+    private optionService: OptionService,
     private helperService: HelperService,
     private filterService: FilterService,
-    options: Options
+    private sercurityService: SecurityService
   ) {
-    this.options = {
-      keyFields: {},
-      security: {},
-      securityHelpers: {},
-      ...options,
-    };
     this.localDatabase = {};
-    this.spreadsheet = SpreadsheetApp.openById(options.databaseId);
-    this.security = new Security(this);
+    // eslint-disable-next-line no-undef
+    this.spreadsheet = SpreadsheetApp.openById(
+      this.optionService.getOptions().databaseId
+    );
   }
 
-  getOptions() {
-    return this.options;
+  extend(extendableOptions: Extendable) {
+    return new DatabaseService(
+      this.optionService,
+      this.helperService,
+      this.filterService,
+      this.sercurityService
+    ).optionService.setOptions(extendableOptions);
   }
 
   getLocalDatabase(sheetName?: string) {
@@ -53,33 +50,16 @@ export class DatabaseService {
     return this.spreadsheet;
   }
 
-  getSecurity() {
-    return this.security;
-  }
-
-  setIntegration<K extends keyof Intergration>(
-    key: K,
-    value: AuthToken
-  ): DatabaseService {
-    this.options[key] = value;
-    return this;
-  }
-
-  extend(options: Extendable) {
-    return new DatabaseService(this.helperService, this.filterService, {
-      ...this.options,
-      ...options,
-    });
-  }
-
   toAdmin() {
     return this.extend({security: false});
   }
 
   ref(path = '/') {
-    return new Ref(
+    return new RefObject(
+      this.optionService,
       this.helperService,
       this.filterService,
+      this.sercurityService,
       this,
       path.split('/').filter(Boolean)
     );
@@ -171,9 +151,11 @@ export class DatabaseService {
   }
 
   docsContent(docId: string, style: DocsContentStyles = 'clean') {
+    // eslint-disable-next-line no-undef
     DriveApp.getStorageUsed(); // trigger authorization
 
     // cache
+    // eslint-disable-next-line no-undef
     const cacheService = CacheService.getScriptCache();
     const cacheKey = 'content_' + docId + '_' + style;
 
@@ -188,9 +170,11 @@ export class DatabaseService {
         'https://www.googleapis.com/drive/v3/files/' +
         docId +
         '/export?mimeType=text/html';
+      // eslint-disable-next-line no-undef
       const response = UrlFetchApp.fetch(url, {
         method: 'get',
         headers: {
+          // eslint-disable-next-line no-undef
           Authorization: 'Bearer ' + ScriptApp.getOAuthToken(),
         },
         muteHttpExceptions: true,

@@ -1,6 +1,6 @@
 import {RouteResponse} from '@sheetbase/server';
 
-import {Query, DataSegment, ListingFilter} from '../types';
+import {Query, DataSegment, ListingFilter} from '../types/database.type';
 import {DatabaseService} from '../services/database.service';
 
 export class DatabaseRoute {
@@ -110,21 +110,18 @@ export class DatabaseRoute {
   /**
    * Add/update/delete data from database
    */
-  post(
-    req: {
-      body: {
-        path: string;
-        table?: string;
-        sheet?: string;
-        id?: string;
-        key?: string;
-        data?: unknown;
-        increasing?: Record<string, number>;
-        clean?: boolean;
-      };
-    },
-    res: RouteResponse
-  ) {
+  post(req: {
+    body: {
+      path: string;
+      table?: string;
+      sheet?: string;
+      id?: string;
+      key?: string;
+      data?: unknown;
+      increasing?: Record<string, number>;
+      clean?: boolean;
+    };
+  }) {
     const {
       path = '/', // sheet name and item key
       table,
@@ -150,21 +147,53 @@ export class DatabaseRoute {
     } else {
       this.databaseService.update(sheetName, itemKey, data);
     }
-    return res.done();
   }
 
   /**
    * Add a new item do the database (proxy to: post /database)
    */
-  put() {}
+  put(req: {
+    body: {
+      path: string;
+      table?: string;
+      sheet?: string;
+      id?: string;
+      key?: string;
+      data?: unknown;
+    };
+  }) {
+    (req.body as Record<string, unknown>).clean = true;
+    return this.post(req);
+  }
 
   /**
    * Update an item from the database (proxy to: post /database)
    */
-  patch() {}
+  patch(req: {
+    body: {
+      path: string;
+      table?: string;
+      sheet?: string;
+      id?: string;
+      key?: string;
+      data?: unknown;
+    };
+  }) {
+    return this.post(req);
+  }
 
   /**
    * Delete an item from the database (proxy to: post /database)
    */
-  delete() {}
+  delete(req: {
+    body: {
+      path: string;
+      table?: string;
+      sheet?: string;
+      id?: string;
+      key?: string;
+    };
+  }) {
+    return this.post(req);
+  }
 }

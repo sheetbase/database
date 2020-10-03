@@ -1,4 +1,4 @@
-import {orderBy} from '../../lodash/orderby';
+import {orderBy} from '../vendors/orderby.vendor';
 
 export class HelperService {
   constructor() {}

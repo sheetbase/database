@@ -1,16 +1,16 @@
-import {SecurityHelpers} from './types';
-import {Ref} from './ref';
+import {SecurityHelpers} from '../types/database.type';
+import {RefObject} from '../objects/ref.object';
 
-export class Snapshot {
-  private input: Ref | unknown;
+export class SnapshotObject {
+  private input: RefObject | unknown;
   private securityHelpers: SecurityHelpers | undefined;
   private isRef = false;
 
-  constructor(input: Ref | unknown, securityHelpers?: SecurityHelpers) {
+  constructor(input: RefObject | unknown, securityHelpers?: SecurityHelpers) {
     this.input = input;
     this.securityHelpers = securityHelpers;
     // input is ref or data
-    if (input instanceof Ref) {
+    if (input instanceof RefObject) {
       this.isRef = true;
     }
     // add helpers
@@ -25,7 +25,7 @@ export class Snapshot {
   // get data
   val() {
     if (this.isRef) {
-      return (this.input as Ref)['data']();
+      return (this.input as RefObject)['data']();
     } else {
       return this.input;
     }

@@ -1,4 +1,23 @@
-import {Snapshot} from './snapshot';
+import {SnapshotObject} from '../objects/snapshot.object';
+
+export interface Options extends Extendable {
+  databaseId: string;
+}
+
+export interface Extendable {
+  keyFields?: {
+    [sheetName: string]: string;
+  };
+  security?: boolean | {};
+  securityHelpers?: SecurityHelpers;
+}
+
+export interface AuthData {
+  uid: string;
+  sub: string;
+  tty: 'ID';
+  isAdmin: boolean;
+}
 
 export type Filter<Item> = Query | AdvancedFilter<Item>;
 
@@ -36,32 +55,7 @@ export interface ListingFilter {
 }
 
 export interface SecurityHelpers {
-  [name: string]: (snapshot: Snapshot) => unknown;
-}
-
-export interface AuthData {
-  uid: string;
-  isAdmin: boolean;
-}
-
-export interface AuthToken {
-  decodeIdToken: (idToken: string) => AuthData;
-}
-
-export interface Intergration {
-  AuthToken?: AuthToken;
-}
-
-export interface Extendable {
-  keyFields?: {
-    [sheetName: string]: string;
-  };
-  security?: boolean | {};
-  securityHelpers?: SecurityHelpers;
-}
-
-export interface Options extends Extendable, Intergration {
-  databaseId: string;
+  [name: string]: (snapshot: SnapshotObject) => unknown;
 }
 
 export interface LocalDatabase {

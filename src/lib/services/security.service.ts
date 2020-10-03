@@ -1,33 +1,25 @@
 import {RouteRequest} from '@sheetbase/server';
 
-import {AuthData} from './types';
-import {Ref} from './ref';
-import {Snapshot} from './snapshot';
-import {DatabaseService} from './services/database.service';
+import {AuthData} from '../types/database.type';
+import {OptionService} from '../services/option.service';
+import {RefObject} from '../objects/ref.object';
+import {SnapshotObject} from '../objects/snapshot.object';
 
-export class Security {
+export class SecurityService {
   private req: RouteRequest | undefined;
   private auth: AuthData | undefined;
 
-  constructor(private databaseService: DatabaseService) {}
+  constructor(private optionService: OptionService) {}
 
-  setRequest(request: RouteRequest) {
-    // req object
+  setRouting(request: RouteRequest) {
     this.req = request;
-    // auth object
-    const {AuthToken} = this.databaseService.getOptions();
-    const idToken = request
-      ? request.query['idToken'] || request.body['idToken']
-      : null;
-    if (!!idToken && !!AuthToken) {
-      this.auth = AuthToken.decodeIdToken(idToken);
-    }
+    this.auth = request.data.auth as AuthData;
   }
 
   checkpoint(
     permission: 'read' | 'write',
     paths: string[],
-    ref: Ref,
+    ref: RefObject,
     item?: unknown,
     data?: unknown
   ) {
@@ -47,11 +39,11 @@ export class Security {
   private hasPermission(
     permission: 'read' | 'write',
     paths: string[],
-    ref: Ref,
+    ref: RefObject,
     item?: unknown,
     data?: unknown
   ): boolean {
-    const {security} = this.databaseService.getOptions();
+    const {security} = this.optionService.getOptions();
     // always when security is off
     if (!security) {
       return true;
@@ -69,21 +61,21 @@ export class Security {
 
   private executeRule(
     rule: string,
-    ref: Ref,
+    ref: RefObject,
     item?: unknown,
     data?: unknown,
     dynamicData: {[key: string]: string} = {}
   ) {
-    const {securityHelpers: customHelpers} = this.databaseService.getOptions();
+    const {securityHelpers: customHelpers} = this.optionService.getOptions();
     // sum up input
     const input = {
       now: new Date(),
       req: this.req, // req object
       auth: this.auth, // auth object
-      root: new Snapshot(ref.root(), customHelpers),
-      data: new Snapshot(ref, customHelpers), // current ref data
-      newData: new Snapshot(item, customHelpers), // item after processed update data
-      inputData: new Snapshot(data, customHelpers), // only update input data
+      root: new SnapshotObject(ref.root(), customHelpers),
+      data: new SnapshotObject(ref, customHelpers), // current ref data
+      newData: new SnapshotObject(item, customHelpers), // item after processed update data
+      inputData: new SnapshotObject(data, customHelpers), // only update input data
       ...dynamicData,
     };
     const body = `
@@ -102,7 +94,7 @@ export class Security {
   }
 
   private parseRule(permission: 'read' | 'write', paths: string[]) {
-    const {security} = this.databaseService.getOptions();
+    const {security} = this.optionService.getOptions();
 
     // prepare
     let rules: Record<string, unknown> = {};

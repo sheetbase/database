@@ -1,14 +1,18 @@
-import {Filter, ListingFilter, DataSegment} from './types';
-import {HelperService} from './services/helper.service';
-import {FilterService} from './services/filter.service';
-import {DatabaseService} from './services/database.service';
+import {Filter, ListingFilter, DataSegment} from '../types/database.type';
+import {OptionService} from '../services/option.service';
+import {HelperService} from '../services/helper.service';
+import {FilterService} from '../services/filter.service';
+import {SecurityService} from '../services/security.service';
+import {DatabaseService} from '../services/database.service';
 
-export class Ref {
+export class RefObject {
   private paths: string[];
 
   constructor(
+    private optionService: OptionService,
     private helperService: HelperService,
     private filterService: FilterService,
+    private securityService: SecurityService,
     private databaseService: DatabaseService,
     paths: string[]
   ) {
@@ -17,7 +21,7 @@ export class Ref {
 
   private keyField(sheetName: string) {
     return (
-      (this.databaseService.getOptions().keyFields || {})[sheetName] || '$key'
+      (this.optionService.getOptions().keyFields || {})[sheetName] || '$key'
     );
   }
 
@@ -100,9 +104,11 @@ export class Ref {
    * ref navigation
    */
   root() {
-    return new Ref(
+    return new RefObject(
+      this.optionService,
       this.helperService,
       this.filterService,
+      this.securityService,
       this.databaseService,
       []
     );
@@ -112,9 +118,11 @@ export class Ref {
     const paths = [...this.paths];
     if (paths.length > 0) {
       paths.pop();
-      return new Ref(
+      return new RefObject(
+        this.optionService,
         this.helperService,
         this.filterService,
+        this.securityService,
         this.databaseService,
         paths
       );
@@ -126,9 +134,11 @@ export class Ref {
   child(path: string) {
     const childPaths = path.split('/').filter(Boolean);
     const paths = [...this.paths, ...childPaths];
-    return new Ref(
+    return new RefObject(
+      this.optionService,
       this.helperService,
       this.filterService,
+      this.securityService,
       this.databaseService,
       paths
     );
@@ -143,7 +153,7 @@ export class Ref {
   }
 
   toObject() {
-    this.databaseService.getSecurity().checkpoint('read', this.paths, this);
+    this.securityService.checkpoint('read', this.paths, this);
     return this.data() || {};
   }
 
@@ -173,9 +183,7 @@ export class Ref {
         const item = rawItems[key] as Item;
         if (!!segmentFilter(item) && !!advancedFilter(item)) {
           const itemRef = this.child(key);
-          this.databaseService
-            .getSecurity()
-            .checkpoint('read', itemRef.paths, itemRef);
+          this.securityService.checkpoint('read', itemRef.paths, itemRef);
           items.push(item);
         }
       }
@@ -266,9 +274,7 @@ export class Ref {
       }
 
       // check permission
-      this.databaseService
-        .getSecurity()
-        .checkpoint('write', this.paths, this, item, data);
+      this.securityService.checkpoint('write', this.paths, this, item, data);
 
       // build range values
       const rangeValues = [];

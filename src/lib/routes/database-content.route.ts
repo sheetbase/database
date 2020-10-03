@@ -1,4 +1,4 @@
-import {DocsContentStyles} from '../types';
+import {DocsContentStyles} from '../types/database.type';
 import {DatabaseService} from '../services/database.service';
 
 export class DatabaseContentRoute {
@@ -22,11 +22,9 @@ export class DatabaseContentRoute {
     };
   }) {
     const {docId, style} = req.query;
-
     if (!docId) {
       throw new Error('database/content-no-id');
     }
-
     return (() => {
       const content = this.databaseService.docsContent(docId, style);
       return {docId, content};

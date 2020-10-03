@@ -1,5 +1,3 @@
-import {HelperService} from './helper.service';
-
 import {
   Filter,
   AdvancedFilter,
@@ -8,7 +6,8 @@ import {
   MultiQuery,
   DataSegment,
   ListingFilter,
-} from '../types';
+} from '../types/database.type';
+import {HelperService} from './helper.service';
 
 export class FilterService {
   constructor(private helperService: HelperService) {}
