@@ -1,6 +1,6 @@
 {
   "name": "@sheetbase/database",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "description": "Using Google Sheets as a database.",
   "author": "Sheetbase",
   "homepage": "https://sheetbase.dev",
@@ -36,7 +36,7 @@
     "url": "https://github.com/sheetbase/database/issues"
   },
   "dependencies": {
-    "@sheetbase/server": "^3.0.3"
+    "@sheetbase/server": "^3.0.5"
   },
   "devDependencies": {
     "@sheetbase/app-scripts": "^3.0.0",

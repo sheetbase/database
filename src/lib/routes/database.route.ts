@@ -1,18 +1,22 @@
-import {RouteResponse} from '@sheetbase/server';
+import {RouteRequest} from '@sheetbase/server';
 
 import {Query, DataSegment, ListingFilter} from '../types/database.type';
 import {DatabaseService} from '../services/database.service';
+import {SecurityService} from '../services/security.service';
 
 export class DatabaseRoute {
   endpoint = '/database';
 
-  disabled = ['post', 'put', 'patch', 'delete'];
+  disabled = ['get', 'post', 'put', 'patch', 'delete'];
 
   errors = {
     'database/no-input': 'No path/table/sheet.',
   };
 
-  constructor(private databaseService: DatabaseService) {}
+  constructor(
+    private databaseService: DatabaseService,
+    private securityService: SecurityService
+  ) {}
 
   /**
    * Get data from the database
@@ -45,6 +49,9 @@ export class DatabaseRoute {
       offset?: number;
     };
   }) {
+    // set routing
+    this.securityService.setRouting((req as unknown) as RouteRequest);
+    // process inputs
     const {
       path = '/', // sheet name or item key
       table,
@@ -65,11 +72,9 @@ export class DatabaseRoute {
     const paths = path.split('/').filter(Boolean);
     const sheetName = table || sheet || paths[0];
     const itemKey = id || key || paths[1];
-
     if (!sheetName) {
       throw new Error('database/no-input');
     }
-
     return (() => {
       // single item
       if (itemKey) {
@@ -122,6 +127,9 @@ export class DatabaseRoute {
       clean?: boolean;
     };
   }) {
+    // set routing
+    this.securityService.setRouting((req as unknown) as RouteRequest);
+    // process inputs
     const {
       path = '/', // sheet name and item key
       table,

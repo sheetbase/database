@@ -1,5 +1,4 @@
 import {
-  Extendable,
   Filter,
   ListingFilter,
   LocalDatabase,
@@ -29,15 +28,6 @@ export class DatabaseService {
     );
   }
 
-  extend(extendableOptions: Extendable) {
-    return new DatabaseService(
-      this.optionService,
-      this.helperService,
-      this.filterService,
-      this.sercurityService
-    ).optionService.setOptions(extendableOptions);
-  }
-
   getLocalDatabase(sheetName?: string) {
     return sheetName ? this.localDatabase[sheetName] : this.localDatabase;
   }
@@ -50,10 +40,6 @@ export class DatabaseService {
     return this.spreadsheet;
   }
 
-  toAdmin() {
-    return this.extend({security: false});
-  }
-
   ref(path = '/') {
     return new RefObject(
       this.optionService,
@@ -63,10 +49,6 @@ export class DatabaseService {
       this,
       path.split('/').filter(Boolean)
     );
-  }
-
-  key(length = 27, startWith = '-') {
-    return this.ref().key(length, startWith);
   }
 
   data<Item>(sheetName: string) {

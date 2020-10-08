@@ -1,4 +1,4 @@
-import {Options, Extendable} from '../types/database.type';
+import {Options} from '../types/database.type';
 
 export class OptionService {
   private options: Options;
@@ -14,9 +14,5 @@ export class OptionService {
 
   getOptions() {
     return this.options;
-  }
-
-  setOptions(options: Options | Extendable) {
-    return (this.options = {...this.options, ...options});
   }
 }

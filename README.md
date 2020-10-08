@@ -13,7 +13,7 @@
 - [Lib](#lib)
   - [Lib properties](#lib-properties)
   - [Lib methods](#lib-methods)
-    - [`registerRoutes(routeEnabling?)`](#lib-registerroutes-0)
+    - [`registerRoutes(routeEnabling?, middlewares?)`](#lib-registerroutes-0)
 - [Routing](#routing)
   - [Errors](#routing-errors)
   - [Routes](#routing-routes)
@@ -84,7 +84,6 @@ export class App {
 | Name                                                                                               | Type                                                                                                                                   | Description |
 | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
 | [databaseContentRoute](https://sheetbase.github.io/database/classes/lib.html#databasecontentroute) | <code><a href="https://sheetbase.github.io/database/classes/databasecontentroute.html" target="_blank">DatabaseContentRoute</a></code> |             |
-| [databaseMiddleware](https://sheetbase.github.io/database/classes/lib.html#databasemiddleware)     | <code><a href="https://sheetbase.github.io/database/classes/databasemiddleware.html" target="_blank">DatabaseMiddleware</a></code>     |             |
 | [databaseRoute](https://sheetbase.github.io/database/classes/lib.html#databaseroute)               | <code><a href="https://sheetbase.github.io/database/classes/databaseroute.html" target="_blank">DatabaseRoute</a></code>               |             |
 | [databaseService](https://sheetbase.github.io/database/classes/lib.html#databaseservice)           | <code><a href="https://sheetbase.github.io/database/classes/databaseservice.html" target="_blank">DatabaseService</a></code>           |             |
 | [filterService](https://sheetbase.github.io/database/classes/lib.html#filterservice)               | <code><a href="https://sheetbase.github.io/database/classes/filterservice.html" target="_blank">FilterService</a></code>               |             |
@@ -95,20 +94,21 @@ export class App {
 <h3><a name="lib-methods"><p>Lib methods</p>
 </a></h3>
 
-| Function                                                | Returns type                 | Description              |
-| ------------------------------------------------------- | ---------------------------- | ------------------------ |
-| [registerRoutes(routeEnabling?)](#lib-registerroutes-0) | <code>RouterService<></code> | Expose the module routes |
+| Function                                                              | Returns type                 | Description              |
+| --------------------------------------------------------------------- | ---------------------------- | ------------------------ |
+| [registerRoutes(routeEnabling?, middlewares?)](#lib-registerroutes-0) | <code>RouterService<></code> | Expose the module routes |
 
-<h4><a name="lib-registerroutes-0" href="https://sheetbase.github.io/database/classes/lib.html#registerroutes"><p><code>registerRoutes(routeEnabling?)</code></p>
+<h4><a name="lib-registerroutes-0" href="https://sheetbase.github.io/database/classes/lib.html#registerroutes"><p><code>registerRoutes(routeEnabling?, middlewares?)</code></p>
 </a></h4>
 
 **Expose the module routes**
 
 **Parameters**
 
-| Param         | Type                                | Description |
-| ------------- | ----------------------------------- | ----------- |
-| routeEnabling | <code>true \| DisabledRoutes</code> |             |
+| Param         | Type                                         | Description |
+| ------------- | -------------------------------------------- | ----------- |
+| routeEnabling | <code>true \| DisabledRoutes</code>          |             |
+| middlewares   | <code>Middlewares \| RouteMiddlewares</code> |             |
 
 **Returns**
 
@@ -147,7 +147,7 @@ DatabaseModule.registerRoutes(routeEnabling?);
 | ------------------------------------------- | -------- | -------- | ----------------------------------------------------------- |
 | [/database/content](#GET__database_content) | `GET`    |          | Get doc content                                             |
 | [/database](#DELETE__database)              | `DELETE` | `true`   | Delete an item from the database (proxy to: post /database) |
-| [/database](#GET__database)                 | `GET`    |          | Get data from the database                                  |
+| [/database](#GET__database)                 | `GET`    | `true`   | Get data from the database                                  |
 | [/database](#PATCH__database)               | `PATCH`  | `true`   | Update an item from the database (proxy to: post /database) |
 | [/database](#POST__database)                | `POST`   | `true`   | Add/update/delete data from database                        |
 | [/database](#PUT__database)                 | `PUT`    | `true`   | Add a new item do the database (proxy to: post /database)   |
@@ -197,7 +197,7 @@ Get doc content
 <h5><a name="GET__database"><p><code>GET</code> /database</p>
 </a></h5>
 
-Get data from the database
+`DISABLED` Get data from the database
 
 **Request query**
 

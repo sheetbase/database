@@ -1,4 +1,9 @@
-import {ServerModule, DisabledRoutes} from '@sheetbase/server';
+import {
+  ServerModule,
+  DisabledRoutes,
+  Middlewares,
+  RouteMiddlewares,
+} from '@sheetbase/server';
 
 import {Options} from './types/database.type';
 
@@ -7,8 +12,6 @@ import {HelperService} from './services/helper.service';
 import {FilterService} from './services/filter.service';
 import {SecurityService} from './services/security.service';
 import {DatabaseService} from './services/database.service';
-
-import {DatabaseMiddleware} from './middlewares/database.middleware';
 
 import {DatabaseRoute} from './routes/database.route';
 import {DatabaseContentRoute} from './routes/database-content.route';
@@ -19,7 +22,6 @@ export class Lib {
   filterService: FilterService;
   securityService: SecurityService;
   databaseService: DatabaseService;
-  databaseMiddleware: DatabaseMiddleware;
   databaseRoute: DatabaseRoute;
   databaseContentRoute: DatabaseContentRoute;
 
@@ -35,21 +37,25 @@ export class Lib {
       this.filterService,
       this.securityService
     );
-    // middlewares
-    this.databaseMiddleware = new DatabaseMiddleware(this.securityService);
     // routes
-    this.databaseRoute = new DatabaseRoute(this.databaseService);
+    this.databaseRoute = new DatabaseRoute(
+      this.databaseService,
+      this.securityService
+    );
     this.databaseContentRoute = new DatabaseContentRoute(this.databaseService);
   }
 
   /**
    * Expose the module routes
    */
-  registerRoutes(routeEnabling?: true | DisabledRoutes) {
+  registerRoutes(
+    routeEnabling?: true | DisabledRoutes,
+    middlewares?: Middlewares | RouteMiddlewares
+  ) {
     return this.serverModule.routerService.register(
       [this.databaseRoute, this.databaseContentRoute],
       routeEnabling,
-      [this.databaseMiddleware.use()]
+      middlewares
     );
   }
 }

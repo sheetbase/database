@@ -1,10 +1,7 @@
 import {SnapshotObject} from '../objects/snapshot.object';
 
-export interface Options extends Extendable {
+export interface Options {
   databaseId: string;
-}
-
-export interface Extendable {
   keyFields?: {
     [sheetName: string]: string;
   };
@@ -16,7 +13,7 @@ export interface AuthData {
   uid: string;
   sub: string;
   tty: 'ID';
-  isAdmin: boolean;
+  [claim: string]: unknown;
 }
 
 export type Filter<Item> = Query | AdvancedFilter<Item>;

@@ -86,8 +86,8 @@
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="refobject.html#child" class="tsd-kind-icon">child</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="refobject.html#generatekey" class="tsd-kind-icon">generate<wbr>Key</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="refobject.html#increase" class="tsd-kind-icon">increase</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="refobject.html#key" class="tsd-kind-icon">key</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="refobject.html#parent" class="tsd-kind-icon">parent</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter"><a href="refobject.html#query" class="tsd-kind-icon">query</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="refobject.html#root" class="tsd-kind-icon">root</a></li>
@@ -112,7 +112,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/sheetbase/database/blob/6699933/src/lib/objects/ref.object.ts#L9">lib/objects/ref.object.ts:9</a></li>
+									<li>Defined in <a href="https://github.com/sheetbase/database/blob/ef015bb/src/lib/objects/ref.object.ts#L9">lib/objects/ref.object.ts:9</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -153,7 +153,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/sheetbase/database/blob/6699933/src/lib/objects/ref.object.ts#L134">lib/objects/ref.object.ts:134</a></li>
+									<li>Defined in <a href="https://github.com/sheetbase/database/blob/ef015bb/src/lib/objects/ref.object.ts#L134">lib/objects/ref.object.ts:134</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -167,39 +167,16 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="increase" class="tsd-anchor"></a>
-					<h3>increase</h3>
+					<a name="generatekey" class="tsd-anchor"></a>
+					<h3>generate<wbr>Key</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">increase<span class="tsd-signature-symbol">(</span>increasing<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Record</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">unknown</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Record</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">unknown</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">generate<wbr>Key<span class="tsd-signature-symbol">(</span>length<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span>, startWith<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/sheetbase/database/blob/6699933/src/lib/objects/ref.object.ts#L315">lib/objects/ref.object.ts:315</a></li>
-								</ul>
-							</aside>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>increasing: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Record</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">unknown</span><span class="tsd-signature-symbol">&gt;</span></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Record</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">unknown</span><span class="tsd-signature-symbol">&gt;</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="key" class="tsd-anchor"></a>
-					<h3>key</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">key<span class="tsd-signature-symbol">(</span>length<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span>, startWith<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/sheetbase/database/blob/6699933/src/lib/objects/ref.object.ts#L151">lib/objects/ref.object.ts:151</a></li>
+									<li>Defined in <a href="https://github.com/sheetbase/database/blob/ef015bb/src/lib/objects/ref.object.ts#L151">lib/objects/ref.object.ts:151</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -221,6 +198,29 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="increase" class="tsd-anchor"></a>
+					<h3>increase</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">increase<span class="tsd-signature-symbol">(</span>increasing<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Record</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">unknown</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Record</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">unknown</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/sheetbase/database/blob/ef015bb/src/lib/objects/ref.object.ts#L315">lib/objects/ref.object.ts:315</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>increasing: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Record</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">unknown</span><span class="tsd-signature-symbol">&gt;</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Record</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">unknown</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="parent" class="tsd-anchor"></a>
 					<h3>parent</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
@@ -230,7 +230,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/sheetbase/database/blob/6699933/src/lib/objects/ref.object.ts#L117">lib/objects/ref.object.ts:117</a></li>
+									<li>Defined in <a href="https://github.com/sheetbase/database/blob/ef015bb/src/lib/objects/ref.object.ts#L117">lib/objects/ref.object.ts:117</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <a href="refobject.html" class="tsd-signature-type">RefObject</a></h4>
@@ -247,7 +247,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/sheetbase/database/blob/6699933/src/lib/objects/ref.object.ts#L164">lib/objects/ref.object.ts:164</a></li>
+									<li>Defined in <a href="https://github.com/sheetbase/database/blob/ef015bb/src/lib/objects/ref.object.ts#L164">lib/objects/ref.object.ts:164</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-type-parameters-title">Type parameters</h4>
@@ -282,7 +282,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/sheetbase/database/blob/6699933/src/lib/objects/ref.object.ts#L106">lib/objects/ref.object.ts:106</a></li>
+									<li>Defined in <a href="https://github.com/sheetbase/database/blob/ef015bb/src/lib/objects/ref.object.ts#L106">lib/objects/ref.object.ts:106</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -304,7 +304,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/sheetbase/database/blob/6699933/src/lib/objects/ref.object.ts#L200">lib/objects/ref.object.ts:200</a></li>
+									<li>Defined in <a href="https://github.com/sheetbase/database/blob/ef015bb/src/lib/objects/ref.object.ts#L200">lib/objects/ref.object.ts:200</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -341,7 +341,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/sheetbase/database/blob/6699933/src/lib/objects/ref.object.ts#L160">lib/objects/ref.object.ts:160</a></li>
+									<li>Defined in <a href="https://github.com/sheetbase/database/blob/ef015bb/src/lib/objects/ref.object.ts#L160">lib/objects/ref.object.ts:160</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">unknown</span><span class="tsd-signature-symbol">[]</span></h4>
@@ -358,7 +358,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/sheetbase/database/blob/6699933/src/lib/objects/ref.object.ts#L155">lib/objects/ref.object.ts:155</a></li>
+									<li>Defined in <a href="https://github.com/sheetbase/database/blob/ef015bb/src/lib/objects/ref.object.ts#L155">lib/objects/ref.object.ts:155</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Record</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">unknown</span><span class="tsd-signature-symbol">&gt;</span></h4>
@@ -375,7 +375,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/sheetbase/database/blob/6699933/src/lib/objects/ref.object.ts#L204">lib/objects/ref.object.ts:204</a></li>
+									<li>Defined in <a href="https://github.com/sheetbase/database/blob/ef015bb/src/lib/objects/ref.object.ts#L204">lib/objects/ref.object.ts:204</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-type-parameters-title">Type parameters</h4>
@@ -416,9 +416,6 @@
 						<a href="databasecontentroute.html" class="tsd-kind-icon">Database<wbr>Content<wbr>Route</a>
 					</li>
 					<li class=" tsd-kind-class">
-						<a href="databasemiddleware.html" class="tsd-kind-icon">Database<wbr>Middleware</a>
-					</li>
-					<li class=" tsd-kind-class">
 						<a href="databaseroute.html" class="tsd-kind-icon">Database<wbr>Route</a>
 					</li>
 					<li class=" tsd-kind-class">
@@ -448,10 +445,10 @@
 								<a href="refobject.html#child" class="tsd-kind-icon">child</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="refobject.html#increase" class="tsd-kind-icon">increase</a>
+								<a href="refobject.html#generatekey" class="tsd-kind-icon">generate<wbr>Key</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="refobject.html#key" class="tsd-kind-icon">key</a>
+								<a href="refobject.html#increase" class="tsd-kind-icon">increase</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="refobject.html#parent" class="tsd-kind-icon">parent</a>
@@ -486,9 +483,6 @@
 					</li>
 					<li class=" tsd-kind-interface">
 						<a href="../interfaces/authdata.html" class="tsd-kind-icon">Auth<wbr>Data</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="../interfaces/extendable.html" class="tsd-kind-icon">Extendable</a>
 					</li>
 					<li class=" tsd-kind-interface">
 						<a href="../interfaces/listingfilter.html" class="tsd-kind-icon">Listing<wbr>Filter</a>

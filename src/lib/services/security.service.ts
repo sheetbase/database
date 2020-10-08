@@ -44,6 +44,10 @@ export class SecurityService {
     data?: unknown
   ): boolean {
     const {security} = this.optionService.getOptions();
+    // not through routing
+    if (!this.req) {
+      return true;
+    }
     // always when security is off
     if (!security) {
       return true;

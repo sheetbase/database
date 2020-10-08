@@ -148,7 +148,7 @@ export class RefObject {
    * read data
    */
 
-  key(length = 27, startWith = '-'): string {
+  generateKey(length = 27, startWith = '-') {
     return this.helperService.uniqueId(length, startWith);
   }
 
@@ -216,7 +216,7 @@ export class RefObject {
 
       // get item
       const items = this.loadDataBySheet(sheetName);
-      const itemKey = _itemKey || this.key();
+      const itemKey = _itemKey || this.generateKey();
       let item = items[itemKey] as Record<string, unknown>;
 
       // determine which action
