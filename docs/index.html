@@ -75,7 +75,7 @@
 						<li><a href="#lib">Lib</a><ul>
 								<li><a href="#lib-properties">Lib properties</a></li>
 								<li><a href="#lib-methods">Lib methods</a><ul>
-										<li><a href="#lib-registerroutes-0"><code>registerRoutes(routeEnabling?)</code></a></li>
+										<li><a href="#lib-registerroutes-0"><code>registerRoutes(routeEnabling?, middlewares?)</code></a></li>
 									</ul>
 								</li>
 							</ul>
@@ -176,11 +176,6 @@
 								<td></td>
 							</tr>
 							<tr>
-								<td><a href="https://sheetbase.github.io/database/classes/lib.html#databasemiddleware">databaseMiddleware</a></td>
-								<td><code><a href="https://sheetbase.github.io/database/classes/databasemiddleware.html" target="_blank">DatabaseMiddleware</a></code></td>
-								<td></td>
-							</tr>
-							<tr>
 								<td><a href="https://sheetbase.github.io/database/classes/lib.html#databaseroute">databaseRoute</a></td>
 								<td><code><a href="https://sheetbase.github.io/database/classes/databaseroute.html" target="_blank">DatabaseRoute</a></code></td>
 								<td></td>
@@ -222,12 +217,12 @@
 							</tr>
 						</thead>
 						<tbody><tr>
-								<td><a href="#lib-registerroutes-0">registerRoutes(routeEnabling?)</a></td>
+								<td><a href="#lib-registerroutes-0">registerRoutes(routeEnabling?, middlewares?)</a></td>
 								<td><code>RouterService<></code></td>
 								<td>Expose the module routes</td>
 							</tr>
 					</tbody></table>
-					<h4><a name="lib-registerroutes-0" href="https://sheetbase.github.io/database/classes/lib.html#registerroutes"><p><code>registerRoutes(routeEnabling?)</code></p>
+					<h4><a name="lib-registerroutes-0" href="https://sheetbase.github.io/database/classes/lib.html#registerroutes"><p><code>registerRoutes(routeEnabling?, middlewares?)</code></p>
 					</a></h4>
 					<p><strong>Expose the module routes</strong></p>
 					<p><strong>Parameters</strong></p>
@@ -242,6 +237,11 @@
 						<tbody><tr>
 								<td>routeEnabling</td>
 								<td><code>true | DisabledRoutes</code></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td>middlewares</td>
+								<td><code>Middlewares | RouteMiddlewares</code></td>
 								<td></td>
 							</tr>
 					</tbody></table>
@@ -289,7 +289,7 @@
 							<tr>
 								<td><a href="#GET__database">/database</a></td>
 								<td><code>GET</code></td>
-								<td></td>
+								<td><code>true</code></td>
 								<td>Get data from the database</td>
 							</tr>
 							<tr>
@@ -382,7 +382,7 @@
 					<hr>
 					<h5><a name="GET__database"><p><code>GET</code> /database</p>
 					</a></h5>
-					<p>Get data from the database</p>
+					<p><code>DISABLED</code> Get data from the database</p>
 					<p><strong>Request query</strong></p>
 					<table>
 						<thead>
