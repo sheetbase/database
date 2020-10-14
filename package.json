@@ -14,7 +14,7 @@
   ],
   "scripts": {
     "compile": "tsc",
-    "build": "sheetbase-app-scripts build",
+    "build": "sheetbase-server-scripts build",
     "docs": "ayedocs generate",
     "test": "npm run compile && nyc --cache false mocha test/**/*.js",
     "coverage": "nyc --cache false report --reporter=text-lcov | coveralls",
@@ -39,7 +39,7 @@
     "@sheetbase/server": "^3.0.7"
   },
   "devDependencies": {
-    "@sheetbase/app-scripts": "^3.0.3",
+    "@sheetbase/server-scripts": "^3.0.5",
     "@types/chai": "^4.2.13",
     "@types/google-apps-script": "^1.0.16",
     "@types/mocha": "^8.0.3",
